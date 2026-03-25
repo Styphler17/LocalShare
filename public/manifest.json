@@ -1,0 +1,22 @@
+{
+  "name": "LocalShare by CreativeUtil",
+  "short_name": "LocalShare",
+  "description": "Share files and text between devices on your local network. By CreativeUtil.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a73e8",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

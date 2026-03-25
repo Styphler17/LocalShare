@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalShare by CreativeUtil</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1a73e8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Bottom Nav -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/logo.png" alt="LocalShare Logo" style="width:38px; height:38px; object-fit:contain; border-radius:8px;">
+                <span class="logo-text">localshare <span style="font-size:0.65em; opacity:0.55; font-weight:400;">by CreativeUtil</span></span>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#dashboard" class="nav-item active" data-page="page-dashboard" data-title="Dashboard">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#receive" class="nav-item" data-page="page-receive" data-title="Receive">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span>Receive</span>
+                </a>
+                <a href="#send" class="nav-item" data-page="page-send" data-title="Send">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    <span>Send</span>
+                </a>
+                <a href="#history" class="nav-item" data-page="page-history" data-title="History">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                    <span>History</span>
+                </a>
+                <a href="#settings" class="nav-item" data-page="page-settings" data-title="Settings">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V15a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51-1z"></path></svg>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="storage-info">
+                    <div id="connection-info" class="connection-status">
+                        <span class="status-dot"></span> Online on Network
+                    </div>
+                </div>
+                <a href="https://buymeacoffee.com/stiffler17" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:center; gap:6px; width:100%; margin-top:10px; padding:8px 12px; background:#FFDD00; color:#000; border-radius:8px; font-size:0.8rem; font-weight:600; text-decoration:none;">
+                    <img src="/buy-me-coffee.png" alt="Buy Me a Coffee" style="height:18px; width:auto;">
+                    Buy me a coffee
+                </a>
+                <a href="https://paypal.me/BraStyphler17" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:center; gap:6px; width:100%; margin-top:8px; padding:8px 12px; background:#003087; color:#fff; border-radius:8px; font-size:0.8rem; font-weight:600; text-decoration:none;">
+                    <img src="/paypal.png" alt="PayPal" style="height:18px; width:auto;">
+                    Donate via PayPal
+                </a>
+                <button id="pwa-install-btn" class="btn btn-outline btn-sm hidden" style="width:100%; margin-top:10px; justify-content:center;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Install App
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <button id="mobile-menu-toggle" class="icon-btn mobile-only">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <h2 id="page-title" style="font-weight:700; font-size:1.6rem;">Dashboard</h2>
+                <div class="topbar-actions">
+                    <div class="search-bar hidden" id="global-search-container">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="search-input" placeholder="Search History">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Pages Container -->
+            <div class="pages-container">
+                <!-- DASHBOARD PAGE -->
+                <div id="page-dashboard" class="page active">
+                    <div class="stats-grid">
+                        <div class="stat-card blue">
+                            <h3>Files Sent</h3>
+                            <p class="stat-value" id="stat-sent">0</p>
+                        </div>
+                        <div class="stat-card green">
+                            <h3>Files Received</h3>
+                            <p class="stat-value" id="stat-received">0</p>
+                        </div>
+                        <div class="stat-card outline">
+                            <h3>Total Transferred</h3>
+                            <p class="stat-value" id="stat-total">0 MB</p>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-recent" style="margin-top: 40px;">
+                        <h3 style="margin-bottom: 16px;">Recent Activity</h3>
+                        <div id="dashboard-recent-list" class="files-container list-view"></div>
+                    </div>
+                </div>
+
+                <!-- RECEIVE PAGE -->
+                <div id="page-receive" class="page hidden centered-page">
+                    <div class="receive-layout">
+                        <div class="pulse-ring">
+                            <img src="/logo.png" class="inner-circle" alt="Logo">
+                        </div>
+                        <h2>Ready to Receive</h2>
+                        <p style="color:var(--text-muted); margin-bottom:32px;">Stay on this page while the sender initiates the transfer. Files will download automatically.</p>
+                        
+                        <div class="receive-identity" style="margin-bottom: 24px;">
+                            <div class="id-card">
+                                <span>Device Name</span>
+                                <strong id="receive-device-name">My Device</strong>
+                            </div>
+                            <div class="id-card">
+                                <span>Network IP</span>
+                                <strong id="receive-device-ip">Loading...</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="qr-panel" style="background:var(--hover-bg); padding:16px; border-radius:12px; display:inline-block;">
+                            <span style="display:block; margin-bottom:8px; font-weight:600; font-size:0.9rem;">Scan to connect mobile device</span>
+                            <img id="qr-code" src="" alt="QR" width="140" style="border-radius:8px;">
+                        </div>
+
+                        <div id="receive-actions" class="hidden" style="margin-top:24px;">
+                            <button id="view-queue-btn" class="btn btn-outline">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+                                View Transfer Queue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEND PAGE -->
+                <div id="page-send" class="page hidden content-padded">
+                    <div class="send-layout" style="display:flex; flex-direction:column; gap:32px; max-width: 800px; margin: 0 auto; margin-top: 20px;">
+                        
+                        <!-- Content Selection Card -->
+                        <div class="content-selection-card" style="background:white; padding:24px; border-radius:12px; border:1px solid var(--border-light); box-shadow:var(--shadow-sm); text-align:left;">
+                            <h3 style="margin-bottom:16px;">1. Stage Content to Send</h3>
+                            
+                            <div class="type-toggles" style="display:flex; gap:8px; margin-bottom:20px; overflow-x:auto; padding-bottom:6px;">
+                                <button id="mode-files-btn" class="btn btn-primary btn-sm">📁 Files</button>
+                                <button id="mode-media-btn" class="btn btn-outline btn-sm">🖼️ Media</button>
+                                <button id="mode-text-btn" class="btn btn-outline btn-sm">📝 Text</button>
+                                <button id="mode-link-btn" class="btn btn-outline btn-sm">🔗 Links</button>
+                            </div>
+                            
+                            <!-- Files Staging -->
+                            <div id="staging-files-area" style="transition: all 0.2s; border-radius: 12px; border: 2px dashed var(--border-light); padding: 4px;">
+                                <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                                    <button id="add-files-btn" class="btn btn-outline" style="flex: 1 1 200px; border:none; padding:32px; color:var(--text-muted); background:var(--sidebar-bg); font-weight:600; flex-direction:column; gap:8px;">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                        Tap to browse or drag & drop files
+                                    </button>
+                                    <button id="paste-clipboard-btn" class="btn btn-outline" style="flex: 1 1 120px; border-radius:8px; padding:24px; color:var(--primary); font-weight:600; background:var(--primary-light); border-color:var(--primary); flex-direction:column; gap:8px;">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                                        Paste
+                                    </button>
+                                </div>
+                                <input type="file" id="file-input" multiple hidden>
+                                <div id="staged-files-list" style="margin-top:16px; display:flex; flex-direction:column; gap:8px;">
+                                    <!-- Files drop here -->
+                                </div>
+                                <div id="staged-files-summary" style="font-size:0.85rem; color:var(--primary); margin-top:8px; font-weight:600;"></div>
+                            </div>
+                            
+                            <!-- Text Staging -->
+                            <div id="staging-text-area" class="hidden">
+                                <textarea id="text-input" placeholder="Type or paste a message, web link, or clipboard data here to instantly share it..." rows="4" style="width:100%; padding:14px; border:1px solid var(--border-color); border-radius:8px; outline:none; font-family:inherit; resize:vertical; background:var(--sidebar-bg);"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Device Selection Card -->
+                        <div class="device-selection-card" style="background:white; padding:24px; border-radius:12px; border:1px solid var(--border-light); box-shadow:var(--shadow-sm); text-align:left;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                                <h3>2. Select Target Device</h3>
+                                <button id="inline-scan-btn" class="btn btn-primary btn-sm">Scan Network</button>
+                            </div>
+
+                            <div id="inline-scan-area" class="scan-area hidden">
+                                <div class="radar-animation" style="margin: 20px auto 40px;">
+                                    <div class="circle c1"></div>
+                                    <div class="circle c2"></div>
+                                    <div class="circle c3"></div>
+                                </div>
+                                <p style="text-align:center; color:var(--text-muted);">Searching Wi-Fi...</p>
+                            </div>
+
+                            <div id="inline-device-results" class="device-results inline-results hidden" style="max-height: 400px; overflow-y:auto; padding-bottom:12px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HISTORY PAGE -->
+                <div id="page-history" class="page hidden content-padded">
+                    <div class="filters-bar">
+                        <div class="tabs">
+                            <button class="tab active">All History</button>
+                        </div>
+                        <div class="view-toggles">
+                            <button id="open-folder-btn" class="btn btn-outline btn-sm" style="margin-right: 12px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                                Open Folder
+                            </button>
+                            <button id="clear-history-btn" class="btn btn-outline btn-sm" style="margin-right: 12px; color: var(--pdf-color); border-color: rgba(229, 57, 53, 0.2); background: rgba(229, 57, 53, 0.05);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"/></svg>
+                                Clear History
+                            </button>
+                            <button id="refresh-btn" class="icon-btn" style="margin-right: 12px;" title="Refresh">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                            </button>
+                            <button id="list-view-btn" class="icon-btn active">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                            </button>
+                            <button id="grid-view-btn" class="icon-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="list-header" class="file-list-header">
+                        <div class="col-name">Name & Preview</div>
+                        <div class="col-meta">Direction</div>
+                        <div class="col-size">Size</div>
+                        <div class="col-date">Date</div>
+                        <div class="col-actions"></div>
+                    </div>
+                    <div id="files-list" class="files-container list-view"></div>
+                </div>
+
+                <!-- SETTINGS PAGE -->
+                <div id="page-settings" class="page hidden content-padded">
+                    <div class="settings-content" style="max-width: 600px;">
+                        <h3 style="margin-bottom: 20px;">Identity Context</h3>
+                        <div class="settings-card" style="margin-bottom: 32px; background:white; padding:24px; border-radius:12px; border:1px solid var(--border-light); box-shadow:var(--shadow-sm);">
+                            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">This is the name that other devices on the network will see when scanning for you.</p>
+                            <div class="device-name-wrap" style="display:flex; gap:12px;">
+                                <input type="text" id="my-device-name" class="device-input" placeholder="Device Name" style="padding:10px 14px; font-size:1rem; flex:1; border-radius:8px; border:1px solid var(--border-color);">
+                                <button id="save-device-name" class="btn btn-primary">Rename Node</button>
+                            </div>
+                        </div>
+
+                        <div id="desktop-settings-panel">
+                            <h3 style="margin-bottom: 20px;">Preferences</h3>
+                            <div class="settings-card" style="margin-bottom: 24px; background:white; padding:24px; border-radius:12px; border:1px solid var(--border-light); box-shadow:var(--shadow-sm);">
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <div>
+                                        <h4 style="margin:0; font-size:1rem;">Auto-Accept Transfers</h4>
+                                        <p style="margin:4px 0 0; font-size:0.85rem; color:var(--text-muted);">Automatically accept incoming files from trusted devices.</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="auto-accept-toggle">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                
+                                <div id="start-hidden-row">
+                                    <div style="width:100%; height:1px; background:var(--border-light); margin:16px 0;"></div>
+                                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                                        <div>
+                                            <h4 style="margin:0; font-size:1rem;">Start Hidden (System Tray)</h4>
+                                            <p style="margin:4px 0 0; font-size:0.85rem; color:var(--text-muted);">Launch the app in the background without opening the window.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="start-hidden-toggle">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 style="margin-bottom: 20px;">Storage Configurations</h3>
+                            <div class="settings-card" style="background:white; padding:24px; border-radius:12px; border:1px solid var(--border-light); box-shadow:var(--shadow-sm);">
+                                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">This is the destination where received incoming files will be stored on your device.</p>
+                                <div id="save-location" style="background:var(--hover-bg); padding:12px; border-radius:8px; font-family:monospace; font-size:0.85rem; word-break:break-all; margin-bottom:16px;">Loading...</div>
+                                <div id="folder-actions"><button id="change-folder-btn" class="btn btn-outline">Change Destination Folder</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Pages Container -->
+
+            <!-- Global Progress Area (Always Visible regardless of active page) -->
+            <div id="global-progress-container" style="padding: 0 40px;">
+                <!-- Overall Progress Bar for Sending -->
+                <div id="upload-progress-container" class="upload-progress-banner hidden" style="margin-bottom: 24px;">
+                    <div class="up-info">
+                        <span class="up-filename" id="upload-filename" style="max-width: 80%; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">Uploading...</span>
+                        <span class="up-percent" id="upload-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="upload-progress"></div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar for Receiving -->
+                <div id="receive-progress-container" class="upload-progress-banner hidden" style="margin-bottom: 24px;">
+                    <div class="up-info">
+                        <span class="up-filename" id="receive-filename" style="max-width: 80%; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">Receiving...</span>
+                        <span class="up-percent" id="receive-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="receive-progress"></div>
+                    </div>
+                    <!-- Receive Queue List -->
+                    <div id="receive-queue" class="receive-queue-list">
+                        <!-- Queue items will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Context Menu -->
+    <div id="context-menu" class="context-menu hidden">
+        <a id="ctx-download" href="#" class="ctx-item" download>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download manually
+        </a>
+    </div>
+
+    <!-- Incoming Transfer Handshake Modal -->
+    <div id="incoming-modal" class="modal-overlay hidden">
+        <div class="modal-content" style="text-align:center; max-width: 360px; padding: 40px 24px;">
+            <div class="pulse-ring" style="width:80px; height:80px; margin:0 auto 20px;">
+                <img src="/logo.png" class="inner-circle" style="width:40px; height:40px;" alt="Logo">
+            </div>
+            <h2 style="margin-bottom:12px; font-size:1.4rem;">Incoming Transfer</h2>
+            <p style="color:var(--text-muted); margin-bottom:24px; line-height:1.5;">
+                <strong id="incoming-sender" style="color:var(--text-main); font-size:1.1rem;">Someone</strong> wants to send you
+                <br><span id="incoming-details" style="font-weight:600; color:var(--primary); font-size:1.05rem;">3 files (5 MB)</span>
+            </p>
+            <div style="margin-bottom: 24px; text-align:left; background:var(--hover-bg); padding:12px; border-radius:8px;">
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:500;">
+                    <input type="checkbox" id="trust-device-checkbox" style="width:16px; height:16px;">
+                    <span>Trust this device in the future</span>
+                </label>
+            </div>
+            <div style="display:flex; gap:12px; justify-content:center;">
+                <button id="decline-transfer-btn" class="btn btn-outline" style="flex:1;">Decline</button>
+                <button id="accept-transfer-btn" class="btn btn-primary" style="flex:1;">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Queue Modal -->
+    <div id="queue-modal" class="modal-overlay hidden">
+        <div class="modal-content" style="max-width: 500px; padding: 24px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; border-bottom:1px solid var(--border-light); padding-bottom:16px;">
+                <h2 style="font-size:1.2rem; font-weight:700;">Incoming Queue</h2>
+                <button id="close-queue-btn" class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            
+            <div id="modal-queue-list" style="max-height: 400px; overflow-y:auto; padding-right:8px;">
+                <!-- Full detailed queue items injected here -->
+            </div>
+
+            <div style="margin-top:20px; text-align:center;">
+                <button id="dismiss-queue-btn" class="btn btn-primary btn-sm" style="width:100%;">Close Details</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Templates -->
+    <template id="file-item-template">
+        <div class="file-card">
+            <div class="file-icon-area"></div>
+            <div class="file-info col-name">
+                <div class="list-thumbnail"></div>
+                <div style="display:flex; flex-direction:column; min-width:0; overflow:hidden;">
+                    <span class="file-name" title="filename" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">filename</span>
+                </div>
+            </div>
+            <div class="file-meta-col col-meta" style="font-size:0.8rem; color:var(--text-muted);">
+                <span class="privacy-badge">Received</span>
+            </div>
+            <div class="file-size col-size">0 MB</div>
+            <div class="file-date col-date">Just now</div>
+            <div class="file-actions col-actions">
+                <button class="icon-btn dots-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker registered!'))
+                    .catch(e => console.error('Service Worker registration failed:', e));
+            });
+        }
+    </script>
+</body>
+</html>
