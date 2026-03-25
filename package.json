@@ -35,7 +35,7 @@
       "target": [{ "target": "dmg", "arch": ["x64", "arm64"] }],
       "icon": "public/logo.png",
       "category": "public.app-category.utilities"
-    },
+    }
   },
   "dependencies": {
     "cors": "^2.8.6",
