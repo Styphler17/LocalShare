@@ -16,8 +16,6 @@ jobs:
             args: --win
           - os: macos-latest
             args: --mac
-          - os: ubuntu-latest
-            args: --linux
 
     runs-on: ${{ matrix.os }}
 
