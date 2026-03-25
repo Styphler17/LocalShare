@@ -35,6 +35,10 @@
       "target": [{ "target": "dmg", "arch": ["x64", "arm64"] }],
       "icon": "public/logo.png",
       "category": "public.app-category.utilities"
+    },
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
     }
   },
   "dependencies": {

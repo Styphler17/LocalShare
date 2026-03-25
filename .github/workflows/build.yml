@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npx electron-builder ${{ matrix.args }}
+        run: npx electron-builder ${{ matrix.args }} ${{ github.event_name == 'release' && '--publish always' || '--publish never' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
